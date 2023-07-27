@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>JS Promise Async Await</title>
+  </head>
+  <body>
+    <div class="conatiner">
+      <h1>JS Promise Async Await</h1>
+      <div class="Q">
+        <span>Q1</span>
+        <div class="one">
+          <h2>
+            Write one example explaining how you can write a callback function.
+          </h2>
+          <pre>
+
+            // function function greet(name, callback) { <br />
+            console.log('Hi' + ' ' + name); <br />
+            callback(); <br />
+            } <br /><br />
+
+            // callback function function callMe() { <br />
+            console.log('Live in Jharkhand'); <br />
+            } <br /><br />
+
+            // passing function as an argument greet('Mohnish', callMe);
+          </pre>
+          <br />
+        </div>
+      </div>
+      <div class="Q">
+        <span>Q2</span>
+        <div class="two">
+          <h2>
+            "Write a callback function to print numbers from 1 to 7, in which 1
+            should be printed after 1 sec, 2 should be printed after 2 sec, 3
+            should be printed after 3 sec, and so on. <br /><br />
+
+            Explain callback hell. <br />
+            Numbers <br />
+            1 <br />
+            2 <br />
+            3 <br />
+            4 <br />
+            5 <br />
+            6 <br />
+            7"
+          </h2>
+          <pre>
+            function printNumbersWithDelay(n) { <br />
+            let count = 1; <br /><br />
+
+            function printNextNumber() { <br />
+            if (count = n) { <br />
+            console.log(count); <br />
+            count++; <br />
+            setTimeout(printNextNumber, count * 1000); <br />
+            // Delay increases with each number } <br />
+            } <br /><br />
+
+            printNextNumber(); <br />
+            } <br /><br />
+
+            // Call the function to print numbers from 1 to 7 with the specified
+            delay printNumbersWithDelay(7);
+          </pre>
+        </div>
+      </div>
+      <div class="Q">
+        <span>Q3</span>
+        <div class="three">
+          <h2>
+            "Write the promise function to print numbers from 1 to 7, in which 1
+            should be printed after 1 sec, 2 should be printed after 2 sec, 3
+            should be printed after 3 sec, and so on. <br /><br />
+
+            Numbers <br />
+            1 <br />
+            2 <br />
+            3 <br />
+            4 <br />
+            5 <br />
+            6 <br />
+            7"
+          </h2>
+          <pre>
+            function demo(num,time){ <br />
+            return new Promise((res,rej)=>{ <br />
+            setTimeout(()=>{ <br />
+            console.log(num); <br />
+            res(); <br />
+            },time) <br />
+            }) <br />
+            } <br /><br />
+
+            demo(1,3000).then(()=>demo(2,2000)).then(()=>demo(3,1000)).then(()=>demo(4,1000)).then(()=>demo(5,1000)).then(()=>demo(6,1000)).then(()=>demo(7,1000))
+          </pre>
+        </div>
+      </div>
+      <div class="Q">
+        <span>Q4</span>
+        <div class="four">
+          <h2>
+            "Create a promise function accepting an argument, if yes is passed
+            to the function then it should go to resolved state and print
+            Promise Resolved, and if nothing is passed <br />
+            then it should go to reject the state and catch the error and print
+            Promise Rejected "
+          </h2>
+          <pre>
+
+            function promiseArgument(argument) { <br />
+            const promise = new Promise((resolve, reject) => { <br />
+            if (argument === "yes") { <br />
+            resolve("Promise Resolved"); <br />
+            } else { <br />
+            reject("Promise Rejected"); <br />
+            } <br />
+            }); <br />
+            return promise; <br />
+            } <br />
+            const promise1 = promiseArgument("yes"); <br />
+            const promise2 = promiseArgument("no"); <br />
+            promise1.then((value) => { <br />
+            console.log(value); <br />
+            }); <br />
+            promise2.catch((error) => { <br />
+            console.log(error); <br />
+            });
+          </pre>
+        </div>
+      </div>
+      <div class="Q">
+        <span>Q5</span>
+        <div class="five">
+          <h2>Create examples to explain callback function</h2>
+          <pre>
+
+            function handson(callback) { <br />
+            console.log("Hi.."); <br />
+            // Simulate an asynchronous operation with a timeout
+            <br />
+            setTimeout(() => { <br />
+            console.log("Mohnish..."); <br />
+            callback(); <br />
+            }, 2000); // After 2 seconds, call the callback function <br />
+            } <br /><br />
+
+            function callbackFunction() { <br />
+            console.log("Handson completed!"); <br />
+            } <br /><br />
+
+            // Call doSomething and pass the callbackFunction as an argument
+            <br />
+            handson(callbackFunction);
+          </pre>
+        </div>
+      </div>
+      <div class="Q">
+        <span>Q6</span>
+        <div class="six">
+          <h2>Create examples to explain callback hell function</h2>
+          <pre>
+
+            setTimeout(() => {
+              console.log("Step 1");
+              setTimeout(() => {
+                console.log("Step 2");
+                setTimeout(() => {
+                  console.log("Step 3");
+                  setTimeout(() => {
+                    console.log("Step 4");
+
+                    // More nested callbacks can continue...
+                  }, 1000);
+                }, 1000);
+              }, 1000);
+            }, 1000);</pre
+          >
+        </div>
+      </div>
+      <div class="Q">
+        <span>Q7</span>
+        <div class="seven">
+          <h2>Create examples to explain promises function</h2>
+          <pre>
+
+function checkNum(num) {
+            return new Promise((resolve, reject) => {
+                if(num < 10)
+               {
+                resolve("Promise resolved successfully!");
+              }
+               // Simulate an asynchronous operation that takes 1 second
+
+              else reject('num if greater than 10')
+            });
+          }
+          
+          // Using the promise
+
+          checkNum(5)
+            .then((result) => {
+              console.log(result);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+          </pre>
+        </div>
+      </div>
+      <div class="Q">
+        <span>Q8</span>
+        <div class="eight">
+          <h2>Create examples to explain async await function</h2>
+          <pre>
+
+function delay(ms) {
+            return new Promise((resolve) => setTimeout(resolve, ms));
+          }
+          
+          async function printMsg() {
+            console.log("Start...loading");
+            await delay(4000); // Pause execution for 2 seconds
+            console.log("print after 4sec");
+          }
+          
+          // Using the async function
+          printMsg();</pre
+          >
+        </div>
+      </div>
+      <div class="Q">
+        <span>Q9</span>
+        <div class="nine">
+          <h2>Create examples to explain promise.all function</h2>
+          <pre>
+
+const promise1 = Promise.resolve(3);
+            const promise2 = 42;
+            const promise3 = new Promise((resolve, reject) => {
+              setTimeout(resolve, 100, 'foo');
+            });
+            
+            Promise.all([promise1, promise2, promise3]).then((values) => {
+              console.log(values);
+            });</pre
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
